@@ -37,18 +37,16 @@ class MainActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.Center,
                         modifier = Modifier.padding(innerPadding)
                     ) {
-                        Text(text = "key-value backup")
+                        Text(text = "key-value custom")
 
                         val scope = rememberCoroutineScope()
                         val context = LocalContext.current
                         val repository = remember { AuthRepository(context.applicationContext) }
                         var fileData by remember { mutableStateOf("Загрузка...") }
-                        var prefsData by remember { mutableStateOf("Загрузка...") }
 
                         LaunchedEffect(Unit) {
                             scope.launch(Dispatchers.IO) {
                                 fileData = repository.readFile()
-                                prefsData = repository.readPrefs()
                             }
                         }
 
@@ -57,18 +55,12 @@ class MainActivity : ComponentActivity() {
                             textAlign = TextAlign.Center,
                             modifier = Modifier.padding(top = 16.dp)
                         )
-                        Text(
-                            text = "Значение из префов для бэкапа: $prefsData",
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.padding(top = 16.dp)
-                        )
 
                         Button(
                             onClick = {
                                 scope.launch(Dispatchers.IO) {
-                                    repository.updateFileAndPrefs()
+                                    repository.updateFile()
                                     fileData = repository.readFile()
-                                    prefsData = repository.readPrefs()
 
                                     BackupManager(context).dataChanged()
                                 }
