@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.Center,
                         modifier = Modifier.padding(innerPadding)
                     ) {
-                        Text(text = "Autobackup")
+                        Text(text = "Autobackup + BackupAgent")
 
                         val scope = rememberCoroutineScope()
                         val context = LocalContext.current
