@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- https://developer.android.com/identity/data/autobackup#include-exclude-android-12 -->
+<data-extraction-rules>
+    <cloud-backup>
+        <include domain="file" path="auth.txt" />
+        <include domain="sharedpref" path="auth.xml" />
+    </cloud-backup>
+
+    <device-transfer>
+        <include domain="file" path="auth.txt" />
+        <include domain="sharedpref" path="auth.xml" />
+    </device-transfer>
+</data-extraction-rules>

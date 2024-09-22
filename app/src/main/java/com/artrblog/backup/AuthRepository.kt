@@ -16,6 +16,8 @@ class AuthRepository(
         val randomUuid2 = UUID.randomUUID().toString()
         File(context.filesDir, FILE_NAME).writeText(randomUuid1)
         prefs.edit { putString("key", randomUuid2) }
+
+        File(context.filesDir, "random.txt").writeText("random")
     }
 
     fun readFile() = runCatching {
