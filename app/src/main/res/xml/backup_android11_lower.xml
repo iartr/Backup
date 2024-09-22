@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- https://developer.android.com/identity/data/autobackup#include-exclude-android-11 -->
+<full-backup-content>
+    <include domain="file" path="auth.txt" />
+    <include domain="sharedpref" path="auth.xml" />
+</full-backup-content>
